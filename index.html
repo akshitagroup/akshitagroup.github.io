@@ -519,7 +519,19 @@ transform:translateY(-8px) scale(1.05);
 <div class="card review"><h4>Abhishek Mishra ⭐⭐⭐⭐⭐</h4><p>Very good international courier service provider. The shipment was handled professionally and reached its destination within the expected timeframe. The team was supportive and ensured a smooth experience from start to finish.</p></div>
 </div>
 </section>
+<section style="padding:60px 8%;text-align:center;">
 
+<h2 class="title">Still Have Questions?</h2>
+
+<p style="color:#ddd;margin-bottom:25px;">
+Get answers to the most common courier, cargo and logistics questions.
+</p>
+
+<a href="javascript:void(0);" onclick="openFaqPopup()" class="quote-btn">
+View FAQs
+</a>
+
+</section>
 <section id="contact" class="contact-premium">
 
 <h2 class="title">Contact Us & Move Your Business Forward</h2>
@@ -615,6 +627,50 @@ popup.style.display="none";
 }
 }
 </script>
+<!-- FAQ Popup -->
 
+<div id="faqPopup" class="quote-popup">
+
+<div class="quote-box">
+
+<span class="close-popup" onclick="closeFaqPopup()">×</span>
+
+<h2>Frequently Asked Questions</h2>
+
+<div style="text-align:left;line-height:2;color:#ddd;">
+
+<h3 style="color:#D4AF37;">Do you provide international courier services from Jamshedpur?</h3>
+<p>Yes, we provide international courier services to USA, UK, Canada, Australia, UAE and many other countries.</p>
+
+<h3 style="color:#D4AF37;">Do you offer doorstep pickup service?</h3>
+<p>Yes, we provide convenient doorstep pickup services for courier and cargo shipments.</p>
+
+<h3 style="color:#D4AF37;">How long does international delivery take?</h3>
+<p>Most international shipments are delivered within 3–10 working days depending on destination.</p>
+
+<h3 style="color:#D4AF37;">Do you provide household shifting services?</h3>
+<p>Yes, we provide professional household and office shifting services with packing support.</p>
+
+<h3 style="color:#D4AF37;">Do you provide air cargo and sea freight?</h3>
+<p>Yes, we provide both air cargo and sea freight solutions for personal and commercial shipments.</p>
+
+<h3 style="color:#D4AF37;">How can I get a shipping quote?</h3>
+<p>You can click the Get Quote button or contact us through WhatsApp, phone or email.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function openFaqPopup(){
+document.getElementById("faqPopup").style.display="flex";
+}
+
+function closeFaqPopup(){
+document.getElementById("faqPopup").style.display="none";
+}
+</script>
 </body>
 </html>
