@@ -607,53 +607,6 @@ document.getElementById("quotePopup").style.display="flex";
 function closeQuoteForm(){
 document.getElementById("quotePopup").style.display="none";
 }
-<!-- Quote Popup -->
-
-<div id="quotePopup" class="quote-popup">
-
-<div class="quote-box">
-
-<span class="close-popup" onclick="closeQuoteForm()">×</span>
-
-<h2>Request A Free Quote</h2>
-
-<form action="https://formsubmit.co/info@akshitagroup.com" method="POST">
-
-<input type="hidden" name="_subject" value="New Quote Request - Akshita Ventures">
-<input type="hidden" name="_captcha" value="false">
-
-<input type="text" name="Name" placeholder="Full Name" required>
-
-<input type="tel" name="Mobile" placeholder="Mobile Number" required>
-
-<input type="email" name="Email" placeholder="Email Address" required>
-
-<input type="text" name="Destination" placeholder="Destination (Country / City)" required>
-
-<select name="Service Required" required>
-<option value="">Select Service</option>
-<option>Domestic Courier</option>
-<option>International Courier</option>
-<option>Air Cargo</option>
-<option>Sea Freight</option>
-<option>Road Transport</option>
-<option>Household Shifting</option>
-<option>Office Shifting</option>
-<option>Business Logistics Solutions</option>
-<option>Packing & Moving</option>
-<option>Other</option>
-</select>
-
-<textarea name="Message" rows="4" placeholder="Tell us about your shipment requirements"></textarea>
-
-<button type="submit">Submit Quote Request</button>
-
-</form>
-
-</div>
-
-</div>
-
 <script>
 function openQuoteForm(){
 document.getElementById("quotePopup").style.display="flex";
@@ -663,5 +616,6 @@ function closeQuoteForm(){
 document.getElementById("quotePopup").style.display="none";
 }
 </script>
+
 </body>
 </html>
