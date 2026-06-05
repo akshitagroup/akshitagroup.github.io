@@ -607,13 +607,12 @@ document.getElementById("quotePopup").style.display="flex";
 function closeQuoteForm(){
 document.getElementById("quotePopup").style.display="none";
 }
-<script>
-function openQuoteForm(){
-document.getElementById("quotePopup").style.display="flex";
-}
 
-function closeQuoteForm(){
-document.getElementById("quotePopup").style.display="none";
+window.onclick=function(event){
+const popup=document.getElementById("quotePopup");
+if(event.target===popup){
+popup.style.display="none";
+}
 }
 </script>
 
