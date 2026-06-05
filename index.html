@@ -60,13 +60,68 @@ nav{display:none}
 .tagline{font-size:24px}
 }
 
-/* Courier Partners Section */
-.partner-section{padding:80px 8%;background:#0d2233;overflow:hidden}
-.partner-title{text-align:center;font-size:42px;color:#D4AF37;margin-bottom:50px}
-.logo-slider{overflow:hidden;position:relative;width:100%}
-.logo-track{display:flex;align-items:center;gap:60px;width:max-content;animation:scrollLogos 35s linear infinite}
-.logo-track img{height:70px;width:auto;background:#fff;padding:10px;border-radius:12px}
-@keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* Premium Courier Partners Section */
+
+.partner-section{
+padding:100px 8%;
+overflow:hidden;
+position:relative;
+background:
+linear-gradient(rgba(7,21,33,.88),rgba(7,21,33,.92)),
+url('https://images.unsplash.com/photo-1556388158-158ea5ccacbd?q=80&w=1800');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+border-top:1px solid rgba(212,175,55,.15);
+border-bottom:1px solid rgba(212,175,55,.15);
+}
+
+.partner-title{
+text-align:center;
+font-size:52px;
+font-family:'Cormorant Garamond',serif;
+color:#D4AF37;
+margin-bottom:60px;
+text-shadow:0 0 25px rgba(212,175,55,.35);
+}
+
+.logo-slider{
+overflow:hidden;
+position:relative;
+width:100%;
+}
+
+.logo-track{
+display:flex;
+align-items:center;
+gap:70px;
+width:max-content;
+animation:scrollLogos 35s linear infinite;
+}
+
+.logo-track img{
+height:85px;
+width:auto;
+background:rgba(255,255,255,.96);
+padding:14px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+transition:all .3s ease;
+}
+
+.logo-track img:hover{
+transform:translateY(-8px) scale(1.05);
+box-shadow:0 15px 35px rgba(212,175,55,.25);
+}
+
+@keyframes scrollLogos{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
 
 </style>
 </head>
