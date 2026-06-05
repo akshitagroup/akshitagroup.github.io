@@ -157,6 +157,79 @@ background-size:cover;
 background-position:center;
 background-attachment:fixed;
 }
+  .quote-popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+z-index:9999;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.quote-box{
+width:100%;
+max-width:650px;
+background:#102738;
+border:1px solid rgba(212,175,55,.25);
+border-radius:20px;
+padding:35px;
+position:relative;
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+.quote-box h2{
+text-align:center;
+color:#D4AF37;
+margin-bottom:25px;
+font-family:'Cormorant Garamond',serif;
+font-size:38px;
+}
+
+.quote-box form{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.quote-box input,
+.quote-box select,
+.quote-box textarea{
+background:#071521;
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+padding:14px;
+border-radius:10px;
+font-family:Poppins,sans-serif;
+}
+
+.quote-box button{
+background:#D4AF37;
+color:#071521;
+font-weight:700;
+border:none;
+padding:15px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+}
+
+.quote-box button:hover{
+opacity:.9;
+}
+
+.close-popup{
+position:absolute;
+top:12px;
+right:18px;
+font-size:34px;
+cursor:pointer;
+color:#D4AF37;
+}
 .footer{text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,.1);color:#ccc}
 .whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;text-decoration:none;padding:14px 18px;border-radius:40px;font-weight:600}
 @media(max-width:768px){
@@ -294,7 +367,7 @@ transform:translateY(-8px) scale(1.05);
 <a href="#about">About</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
-<a class="quote-btn" href="https://wa.me/918340681941?text=Hello%20Akshita%20Ventures,%20I%20would%20like%20a%20quotation.">Get Quote</a>
+<a class="quote-btn" href="#" onclick="openQuoteForm()">Get Quote</a>
 </div>
 </nav>
 
@@ -479,6 +552,116 @@ Jamshedpur, Jharkhand - 831012
 <div class="footer">© 2026 Akshita Ventures Private Limited. All Rights Reserved.</div>
 
 <a class="whatsapp" href="https://wa.me/918340681941?text=Hello%20Akshita%20Ventures,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20Courier,%20Cargo%20and%20Logistics%20Services.%0A%0APlease%20contact%20me." target="_blank">WhatsApp</a>
+<!-- Quote Popup -->
 
+<div id="quotePopup" class="quote-popup">
+
+<div class="quote-box">
+
+<span class="close-popup" onclick="closeQuoteForm()">×</span>
+
+<h2>Request A Free Quote</h2>
+
+<form action="https://formsubmit.co/info@akshitagroup.com" method="POST">
+
+<input type="hidden" name="_subject" value="New Quote Request - Akshita Ventures">
+<input type="hidden" name="_captcha" value="false">
+
+<input type="text" name="Name" placeholder="Full Name" required>
+
+<input type="tel" name="Mobile" placeholder="Mobile Number" required>
+
+<input type="email" name="Email" placeholder="Email Address" required>
+
+<input type="text" name="Destination" placeholder="Destination (Country / City)" required>
+
+<select name="Service Required" required>
+<option value="">Select Service</option>
+<option>Domestic Courier</option>
+<option>International Courier</option>
+<option>Air Cargo</option>
+<option>Sea Freight</option>
+<option>Road Transport</option>
+<option>Household Shifting</option>
+<option>Office Shifting</option>
+<option>Business Logistics Solutions</option>
+<option>Packing & Moving</option>
+<option>Other</option>
+</select>
+
+<textarea name="Message" rows="4" placeholder="Tell us about your shipment requirements"></textarea>
+
+<button type="submit">Submit Quote Request</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+function openQuoteForm(){
+document.getElementById("quotePopup").style.display="flex";
+}
+
+function closeQuoteForm(){
+document.getElementById("quotePopup").style.display="none";
+}
+<!-- Quote Popup -->
+
+<div id="quotePopup" class="quote-popup">
+
+<div class="quote-box">
+
+<span class="close-popup" onclick="closeQuoteForm()">×</span>
+
+<h2>Request A Free Quote</h2>
+
+<form action="https://formsubmit.co/info@akshitagroup.com" method="POST">
+
+<input type="hidden" name="_subject" value="New Quote Request - Akshita Ventures">
+<input type="hidden" name="_captcha" value="false">
+
+<input type="text" name="Name" placeholder="Full Name" required>
+
+<input type="tel" name="Mobile" placeholder="Mobile Number" required>
+
+<input type="email" name="Email" placeholder="Email Address" required>
+
+<input type="text" name="Destination" placeholder="Destination (Country / City)" required>
+
+<select name="Service Required" required>
+<option value="">Select Service</option>
+<option>Domestic Courier</option>
+<option>International Courier</option>
+<option>Air Cargo</option>
+<option>Sea Freight</option>
+<option>Road Transport</option>
+<option>Household Shifting</option>
+<option>Office Shifting</option>
+<option>Business Logistics Solutions</option>
+<option>Packing & Moving</option>
+<option>Other</option>
+</select>
+
+<textarea name="Message" rows="4" placeholder="Tell us about your shipment requirements"></textarea>
+
+<button type="submit">Submit Quote Request</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+function openQuoteForm(){
+document.getElementById("quotePopup").style.display="flex";
+}
+
+function closeQuoteForm(){
+document.getElementById("quotePopup").style.display="none";
+}
+</script>
 </body>
 </html>
