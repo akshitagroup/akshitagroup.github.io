@@ -35,30 +35,8 @@ nav .links a:hover, nav .links a.active{color:var(--luxury-gold)}
 .quote-btn{background:linear-gradient(135deg, #E2B744, #C19932);color:#040c14!important;padding:12px 24px;border-radius:4px;font-weight:600;text-decoration:none;transition:0.3s;font-size:13px}
 .quote-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(226, 183, 68, 0.35);}
 
-.hero{
-    min-height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:160px 20px 80px;
-    background: radial-gradient(circle at 50% 40%, rgba(4, 12, 20, 0.35) 0%, rgba(4, 12, 20, 0.75) 75%);
-    box-shadow: inset 0 0 120px rgba(4, 12, 20, 0.9);
-}
-.hero::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position:center;
-    animation:heroSlider 24s infinite;
-    z-index:-2;
-    filter: brightness(0.48) contrast(1.02) saturate(0.9);
-}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 20px 80px;background: radial-gradient(circle at 50% 40%, rgba(4, 12, 20, 0.35) 0%, rgba(4, 12, 20, 0.75) 75%);box-shadow: inset 0 0 120px rgba(4, 12, 20, 0.9);}
+.hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;animation:heroSlider 24s infinite;z-index:-2;filter: brightness(0.48) contrast(1.02) saturate(0.9);}
 
 @keyframes heroSlider{
     0%,23%{background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920');}
@@ -89,10 +67,7 @@ section{padding:120px 8%}
 .stat-card h2{font-family:'Playfair Display',serif;font-size:46px;color:var(--luxury-gold);margin-bottom:5px;font-weight:500}
 .stat-card p{color:var(--text-muted);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1px}
 
-.texture-section{
-    background:linear-gradient(rgba(4,12,20,.9),rgba(4,12,20,.95)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000');
-    background-size:cover;background-position:center;background-attachment:fixed;
-}
+.texture-section{background:linear-gradient(rgba(4,12,20,.9),rgba(4,12,20,.95)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000');background-size:cover;background-position:center;background-attachment:fixed;}
 .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
 .feature-card{background:rgba(6, 15, 25, 0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.02);padding:35px;border-radius:4px;transition:0.4s cubic-bezier(0.16, 1, 0.3, 1);position:relative}
 .feature-card:hover{transform:translateY(-6px);border-color:var(--luxury-gold);box-shadow:0 12px 30px var(--glow-gold);background:rgba(13, 27, 42, 0.85);}
@@ -114,14 +89,9 @@ section{padding:120px 8%}
 .luxury-review-box h4{color:#fff;font-size:16px;margin-bottom:4px;font-weight:600}
 .luxury-review-box .stars{color:var(--luxury-gold);margin-bottom:15px;font-size:11px;letter-spacing:1px}
 .luxury-review-box p{color:var(--text-muted);font-size:14px;line-height:1.6;font-style:italic}
-
-@keyframes loopReviews {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
+@keyframes loopReviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 .partner-wrap-client{padding:60px 0;overflow:hidden;background:#02070e;border-top:1px solid rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.02)}
-
 .contact-section-base{background:var(--bg-main); padding:60px 0; border-top:1px solid rgba(255,255,255,0.02);}
 .contact-grid-base{display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; max-width:1100px; margin:0 auto; padding:0 20px;}
 .contact-col-base:nth-child(1){text-align:left;}
@@ -129,6 +99,14 @@ section{padding:120px 8%}
 .contact-col-base:nth-child(3){text-align:right;}
 .contact-col-base h3{font-family:'Playfair Display',serif; color:var(--luxury-gold); font-size:18px; margin-bottom:15px; font-weight:500;}
 .contact-col-base p{color:var(--text-white); font-size:14px; line-height:1.6; margin-bottom:6px;}
+
+/* MOBILE RESPONSIVENESS FIX */
+@media (max-width: 768px) {
+    .nav .links { display: none; }
+    .company { font-size: 40px !important; }
+    .feature-grid, .contact-grid-base { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .contact-col-base { text-align: center !important; }
+}
 
 .quote-popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(4,12,20,0.9);backdrop-filter:blur(15px);z-index:9999;justify-content:center;align-items:center;padding:20px}
 .quote-box{width:100%;max-width:540px;background:#081420;border:1px solid rgba(226,183,68,0.25);border-radius:4px;padding:45px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,0.5)}
@@ -139,9 +117,7 @@ section{padding:120px 8%}
 .quote-box button{background:var(--luxury-gold);color:#040c14;font-weight:600;border:none;padding:16px;cursor:pointer;font-size:14px;transition:0.3s;border-radius:2px;}
 .quote-box button:hover{background:#fff}
 .close-popup{position:absolute;top:18px;right:22px;font-size:34px;cursor:pointer;color:var(--luxury-gold)}
-
 .footer{background:var(--bg-main);padding:20px 20px 40px;border-top:1px solid rgba(255,255,255,0.01);text-align:center;color:var(--text-muted);font-size:13px;letter-spacing:0.5px;}
-
 .whatsapp{position:fixed;right:30px;bottom:30px;background:#25D366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:4px;font-weight:600;box-shadow:0 8px 24px rgba(37,211,102,0.2);z-index:999;font-size:14px;letter-spacing:0.5px;}
 </style>
 </head>
@@ -189,7 +165,6 @@ section{padding:120px 8%}
 </div>
 <div class="logo-track">
 <img src="https://akshitagroup.github.io/Dhl%20logo.png" alt="DHL"><img src="https://akshitagroup.github.io/Fedex%20logo.png" alt="FedEx"><img src="https://akshitagroup.github.io/Ups%20logo.png" alt="UPS"><img src="https://akshitagroup.github.io/aramex%20logo.png" alt="Aramex"><img src="https://akshitagroup.github.io/Bludart%20logo.png" alt="Blue Dart"><img src="https://akshitagroup.github.io/Dtdc%20logo.png" alt="DTDC"><img src="https://akshitagroup.github.io/Delhivery%20logo.png" alt="Delhivery"><img src="https://akshitagroup.github.io/Trackon%20logo.png" alt="Trackon"><img src="https://akshitagroup.github.io/Expressbees%20logo.png" alt="XpressBees"><img src="https://akshitagroup.github.io/Ekart%20logo.png" alt="Ekart">
-<!-- Duplicates -->
 <img src="https://akshitagroup.github.io/Dhl%20logo.png" alt="DHL"><img src="https://akshitagroup.github.io/Fedex%20logo.png" alt="FedEx"><img src="https://akshitagroup.github.io/Ups%20logo.png" alt="UPS"><img src="https://akshitagroup.github.io/aramex%20logo.png" alt="Aramex"><img src="https://akshitagroup.github.io/Bludart%20logo.png" alt="Blue Dart"><img src="https://akshitagroup.github.io/Dtdc%20logo.png" alt="DTDC"><img src="https://akshitagroup.github.io/Delhivery%20logo.png" alt="Delhivery"><img src="https://akshitagroup.github.io/Trackon%20logo.png" alt="Trackon"><img src="https://akshitagroup.github.io/Expressbees%20logo.png" alt="XpressBees"><img src="https://akshitagroup.github.io/Ekart%20logo.png" alt="Ekart">
 </div>
 </div>
@@ -272,11 +247,9 @@ section{padding:120px 8%}
 <form action="https://formsubmit.co/info@akshitagroup.com" method="POST">
 <input type="hidden" name="_subject" value="New Quote Request - Akshita Ventures">
 <input type="hidden" name="_captcha" value="false">
-
 <input type="text" name="Name" placeholder="Full Name" required>
 <input type="tel" name="Mobile" placeholder="Mobile Number" required>
 <input type="email" name="Email" placeholder="Email Address" required>
-
 <select name="Service Required" required>
 <option value="">Select Required Strategic Corridor</option>
 <option>Domestic Courier</option>
