@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Akshita Ventures Private Limited","alternateName":"Akshita Communication","url":"https://akshitagroup.com","logo":"https://akshitagroup.com/favicon-32x32.png","telephone":"+91-8340681941","email":"info@akshitagroup.com"}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Akshita Ventures Private Limited","alternateName":"Akshita Communication","url":"https://akshitagroup.com","logo":"https://akshitagroup.github.io/favicon-32x32.png","telephone":"+91-8340681941","email":"info@akshitagroup.com"}
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -23,26 +23,57 @@
 <style>
 :root {
     --bg-main: #040c14;
-    --bg-card: rgba(13, 27, 42, 0.55);
+    --bg-card: rgba(13, 27, 42, 0.70);
     --luxury-gold: #E2B744;
     --ambient-blue: rgba(20, 45, 76, 0.55);
-    --glow-gold: rgba(226, 183, 68, 0.25);
+    --glow-gold: rgba(226, 183, 68, 0.3);
     --text-white: #f8fafc;
     --text-muted: #94a3b8;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg-main);color:var(--text-white);overflow-x:hidden}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg-main);color:var(--text-white);overflow-x:hidden;position:relative;}
 
-nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 8%;background:rgba(4, 12, 20, 0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.02);z-index:999}
+/* VISIBLE FLOATING AMBIENT ORBS (BACKGROUND EFFECT) */
+.ambient-orbs {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.22;
+    animation: floatOrb 12s infinite alternate ease-in-out;
+}
+.orb-1 {
+    width: 400px; height: 400px;
+    background: var(--luxury-gold);
+    top: 5%; left: 10%;
+}
+.orb-2 {
+    width: 500px; height: 500px;
+    background: #1d4ed8;
+    bottom: 10%; right: 10%;
+    animation-delay: -4s;
+}
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(60px, 60px) scale(1.15); }
+}
+
+nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 8%;background:rgba(4, 12, 20, 0.90);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.03);z-index:999}
 nav .brand{font-family:'Playfair Display',serif;font-size:22px;color:var(--luxury-gold);font-weight:600;letter-spacing:0.5px}
-nav .links a{color:#fff;text-decoration:none;margin-left:28px;font-size:13px;font-weight:500;transition:0.3s}
+nav .links a{color:#fff;text-decoration:none;margin-left:28px;font-size:13px;font-weight:500;transition:color 0.3s}
 nav .links a:hover, nav .links a.active{color:var(--luxury-gold)}
 
-.quote-btn{background:linear-gradient(135deg, #E2B744, #C19932);color:#040c14!important;padding:12px 24px;border-radius:4px;font-weight:600;text-decoration:none;transition:0.3s;font-size:13px}
-.quote-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(226, 183, 68, 0.35);}
+.quote-btn{background:linear-gradient(135deg, #E2B744, #C19932);color:#040c14!important;padding:12px 24px;border-radius:4px;font-weight:600;text-decoration:none;transition:transform 0.3s ease, box-shadow 0.3s ease;font-size:13px}
+.quote-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(226, 183, 68, 0.4);}
 
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 20px 80px;background: radial-gradient(circle at 50% 40%, rgba(4, 12, 20, 0.35) 0%, rgba(4, 12, 20, 0.75) 75%);box-shadow: inset 0 0 120px rgba(4, 12, 20, 0.9);}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:160px 20px 80px;background: radial-gradient(circle at 50% 40%, rgba(4, 12, 20, 0.35) 0%, rgba(4, 12, 20, 0.75) 75%);box-shadow: inset 0 0 120px rgba(4, 12, 20, 0.9);z-index: 2;}
 .hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;animation:heroSlider 24s infinite;z-index:-2;filter: brightness(0.48) contrast(1.02) saturate(0.9);}
 
 @keyframes heroSlider{
@@ -52,7 +83,7 @@ nav .links a:hover, nav .links a.active{color:var(--luxury-gold)}
     75%,100%{background-image:url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1920');}
 }
 
-.logo{width:140px;margin-bottom:20px;animation:floatLogo 4.5s ease-in-out infinite}
+.logo{width:140px;margin-bottom:20px;animation:floatLogo 4s ease-in-out infinite}
 @keyframes floatLogo{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 
 .company{font-family:'Playfair Display',serif;font-size:68px;color:var(--luxury-gold);font-weight:500;line-height:1.1;letter-spacing:-0.5px}
@@ -60,47 +91,81 @@ nav .links a:hover, nav .links a.active{color:var(--luxury-gold)}
 .tagline{font-size:26px;margin-top:25px;color:#f1f5f9;font-weight:400}
 .sub{max-width:780px;margin:15px auto 35px;color:var(--text-muted);font-size:15px;line-height:1.6}
 .badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.badge{background:rgba(255,255,255,0.04);padding:6px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.06);font-size:12px;color:var(--luxury-gold);font-weight:500}
+.badge{background:rgba(255,255,255,0.04);padding:6px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.06);font-size:12px;color:var(--luxury-gold);font-weight:500;transition:0.3s;}
+.badge:hover{background:rgba(226,183,68,0.08); border-color:var(--luxury-gold);}
 
-section{padding:120px 8%}
+section{padding:100px 8%; position: relative; z-index: 2;}
 .title-area{text-align:center;margin-bottom:65px}
 .title-area h2{font-family:'Playfair Display',serif;font-size:42px;color:#fff;font-weight:500}
 .title-area h2 span{color:var(--luxury-gold)}
 .title-area p{color:var(--text-muted);font-size:15px;margin-top:6px}
 
+/* VISIBLE 3D TILT & GOLDEN SHIMMER LIGHT SWEEP ON CARDS */
+.tilt-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 183, 68, 0.25);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tilt-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(226, 183, 68, 0.35), transparent);
+    transition: 0.6s ease;
+}
+.tilt-card:hover::before {
+    left: 100%;
+}
+.tilt-card:hover {
+    border-color: var(--luxury-gold);
+    box-shadow: 0 20px 45px rgba(226, 183, 68, 0.35);
+}
+
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
-.stat-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.03);padding:40px 25px;border-radius:4px;text-align:center;transition:0.3s;box-shadow: 0 0 15px rgba(226, 183, 68, 0.1);}
-.stat-card:hover{border-color:var(--luxury-gold); box-shadow: 0 0 25px rgba(226, 183, 68, 0.2);}
+.stat-card{padding:40px 25px;text-align:center;}
 .stat-card h2{font-family:'Playfair Display',serif;font-size:46px;color:var(--luxury-gold);margin-bottom:5px;font-weight:500}
 .stat-card p{color:var(--text-muted);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1px}
 
+/* GLOBAL REACH COUNTER SECTION */
+.global-reach-section { background: linear-gradient(135deg, #03080f, #071626); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02); }
+.global-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+.global-card { padding: 40px 25px; text-align: center; }
+.global-card h3 { font-family: 'Playfair Display', serif; font-size: 46px; color: var(--luxury-gold); margin-bottom: 5px; font-weight: 500; }
+.global-card p { color: var(--text-muted); font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
 .texture-section{background:linear-gradient(rgba(4,12,20,.9),rgba(4,12,20,.95)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000');background-size:cover;background-position:center;background-attachment:fixed;}
 .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-.feature-card{background:rgba(6, 15, 25, 0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.02);padding:35px;border-radius:4px;transition:0.4s cubic-bezier(0.16, 1, 0.3, 1);position:relative}
-.feature-card:hover{transform:translateY(-6px);border-color:var(--luxury-gold);box-shadow:0 12px 30px var(--glow-gold);background:rgba(13, 27, 42, 0.85);}
+.feature-card{padding:35px;}
 .feature-card h3{color:var(--luxury-gold);font-size:20px;margin-bottom:12px;font-family:'Playfair Display',serif;font-weight:500}
 .feature-card p{color:var(--text-muted);font-size:14px;line-height:1.65}
 
 .partner-wrap{padding:60px 0;overflow:hidden;background:#03090f;border-top:1px solid rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.02)}
 .logo-track{display:flex;align-items:center;gap:60px;width:max-content;animation:scrollLogos 30s linear infinite;}
 .logo-track img{height:75px;width:auto;background:rgba(255,255,255,0.96);padding:14px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.3);filter: grayscale(1) contrast(1.2); opacity:0.45; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); object-fit: contain;}
-.logo-track img:hover{transform:scale(1.05); filter: grayscale(0) contrast(1); opacity:1; box-shadow:0 8px 25px rgba(226,183,68,0.25);}
+.logo-track img:hover{transform:scale(1.08); filter: grayscale(0) contrast(1); opacity:1; box-shadow:0 8px 25px rgba(226,183,68,0.35);}
 @keyframes scrollLogos{ 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
 
 .review-section{background:linear-gradient(180deg, #040c14, #061524); overflow:hidden;}
 .review-slider-wrap {width: 100%; overflow: hidden; padding: 25px 0;}
 .review-track-auto {display: flex; gap: 30px; width: max-content; animation: loopReviews 45s linear infinite;}
 .review-track-auto:hover {animation-play-state: paused;}
-.luxury-review-box{width: 360px; background:var(--bg-card); border:1px solid rgba(255,255,255,0.03); padding:35px; border-radius:4px; flex-shrink: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.25); transition: 0.3s;}
-.luxury-review-box:hover{border-color:var(--luxury-gold); box-shadow:0 12px 30px var(--glow-gold);}
+.luxury-review-box{width: 360px; padding:35px; flex-shrink: 0;}
 .luxury-review-box h4{color:#fff;font-size:16px;margin-bottom:4px;font-weight:600}
 .luxury-review-box .stars{color:var(--luxury-gold);margin-bottom:15px;font-size:11px;letter-spacing:1px}
 .luxury-review-box p{color:var(--text-muted);font-size:14px;line-height:1.6;font-style:italic}
 @keyframes loopReviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.partner-wrap-client{padding:60px 0;overflow:hidden;background:#02070e;border-top:1px solid rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.02)}
-.contact-section-base{background:var(--bg-main); padding:60px 0; border-top:1px solid rgba(255,255,255,0.02);}
-.contact-grid-base{display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; max-width:1100px; margin:0 auto; padding:0 20px;}
+.partner-wrap-client{padding:60px 0;overflow:hidden;background:#02070e}
+
+/* Contact Section Alignment */
+.contact-section-base{background:var(--bg-main); padding:60px 8%; border-top:1px solid rgba(255,255,255,0.02);}
+.contact-grid-base{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:40px; max-width:1300px; margin:0 auto; align-items: start;}
 .contact-col-base:nth-child(1){text-align:left;}
 .contact-col-base:nth-child(2){text-align:center;}
 .contact-col-base:nth-child(3){text-align:right;}
@@ -111,7 +176,7 @@ section{padding:120px 8%}
 @media (max-width: 768px) {
     .nav .links { display: none; }
     .company { font-size: 40px !important; }
-    .feature-grid, .contact-grid-base { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .feature-grid, .contact-grid-base { grid-template-columns: 1fr !important; gap: 30px !important; }
     .contact-col-base { text-align: center !important; }
 }
 
@@ -124,11 +189,106 @@ section{padding:120px 8%}
 .quote-box button{background:var(--luxury-gold);color:#040c14;font-weight:600;border:none;padding:16px;cursor:pointer;font-size:14px;transition:0.3s;border-radius:2px;}
 .quote-box button:hover{background:#fff}
 .close-popup{position:absolute;top:18px;right:22px;font-size:34px;cursor:pointer;color:var(--luxury-gold)}
-.footer{background:var(--bg-main);padding:20px 20px 40px;border-top:1px solid rgba(255,255,255,0.01);text-align:center;color:var(--text-muted);font-size:13px;letter-spacing:0.5px;}
-.whatsapp{position:fixed;right:30px;bottom:30px;background:#25D366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:4px;font-weight:600;box-shadow:0 8px 24px rgba(37,211,102,0.2);z-index:999;font-size:14px;letter-spacing:0.5px;}
+
+/* ANIMATED WHATSAPP BUTTON PLACED ON BOTTOM-LEFT */
+.whatsapp{
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+    z-index: 999;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    animation: pulseWhatsApp 2s infinite;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+@keyframes pulseWhatsApp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* STYLISH CHAT WITH GATIMAN TOOLTIP BUBBLE */
+.gatiman-bubble-text {
+    position: fixed;
+    right: 90px;
+    bottom: 30px;
+    background: #081420;
+    color: #E2B744;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    border: 1px solid rgba(226, 183, 68, 0.4);
+    z-index: 99999;
+    letter-spacing: 0.4px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    animation: floatTooltip 2s infinite ease-in-out;
+    pointer-events: none;
+}
+@keyframes floatTooltip {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Footer Compliance Section */
+.footer{
+    background:#02060b;
+    padding:40px 20px;
+    border-top:1px solid rgba(255,255,255,0.04);
+    text-align:center;
+    color:var(--text-muted);
+    font-size:13px;
+    position: relative;
+    z-index: 2;
+}
+.footer .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+.footer .compliance-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 35px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+}
+.footer .compliance-item {
+    font-size: 12.5px;
+    color: #94a3b8;
+    letter-spacing: 0.4px;
+}
+.footer .compliance-item strong {
+    color: var(--luxury-gold);
+    font-weight: 600;
+    margin-right: 4px;
+}
 </style>
 </head>
 <body>
+
+<!-- FLOATING AMBIENT ORBS BACKGROUND -->
+<div class="ambient-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+</div>
 
 <nav>
 <div class="brand">AKSHITA VENTURES</div>
@@ -159,10 +319,36 @@ section{padding:120px 8%}
 
 <section style="background: rgba(255,255,255,0.005);">
 <div class="stats-grid">
-<div class="stat-card"><h2>482+</h2><p>Happy Customers</p></div>
-<div class="stat-card"><h2>1.5 L+</h2><p>Shipments Delivered</p></div>
-<div class="stat-card"><h2>12+</h2><p>Years Experience</p></div>
-<div class="stat-card"><h2>24/7</h2><p>Customer Support</p></div>
+<div class="stat-card tilt-card"><h2>482+</h2><p>Happy Customers</p></div>
+<div class="stat-card tilt-card"><h2>1.5 L+</h2><p>Shipments Delivered</p></div>
+<div class="stat-card tilt-card"><h2>12+</h2><p>Years Experience</p></div>
+<div class="stat-card tilt-card"><h2>24/7</h2><p>Customer Support</p></div>
+</div>
+</section>
+
+<!-- GLOBAL REACH & HUBS SECTION -->
+<section class="global-reach-section">
+<div class="title-area" style="margin-bottom: 40px;">
+    <h2>Global Reach & <span>Network Hubs</span></h2>
+    <p>Seamlessly connecting domestic sectors to international trade corridors</p>
+</div>
+<div class="global-grid">
+    <div class="global-card tilt-card">
+        <h3>190+</h3>
+        <p>Global Countries Covered</p>
+    </div>
+    <div class="global-card tilt-card">
+        <h3>28+</h3>
+        <p>Domestic Hubs & States</p>
+    </div>
+    <div class="global-card tilt-card">
+        <h3>10+</h3>
+        <p>Global Carrier Partners</p>
+    </div>
+    <div class="global-card tilt-card">
+        <h3>100%</h3>
+        <p>Secure Transit Network</p>
+    </div>
 </div>
 </section>
 
@@ -181,14 +367,14 @@ section{padding:120px 8%}
     <p>Delivering high performance logistics with strict corporate safety standards</p>
 </div>
 <div class="feature-grid">
-<div class="feature-card"><h3>Safe & Monitored Delivery</h3><p>Utmost advanced layer telemetry loops ensuring perfect transit protection frameworks.</p></div>
-<div class="feature-card"><h3>Multi-layer Packing</h3><p>High grade damageproof casing architectures deployed by industrial packing teams.</p></div>
-<div class="feature-card"><h3>Pan India Transport</h3><p>Unified domestic fleet logistics linking major hubs to interior networks seamlessly.</p></div>
-<div class="feature-card"><h3>Global Freight Array</h3><p>Strategic international trade corridors delivering parcels across 190+ countries.</p></div>
-<div class="feature-card"><h3>Punctual Fleet Corridors</h3><p>Strict schedule schedule monitoring loops delivering corporate freight intact and within timeframe.</p></div>
-<div class="feature-card"><h3>Transparent Transit Desk</h3><p>Real-time corporate desk handling communication parameters round-the-clock seamlessly.</p></div>
-<div class="feature-card"><h3>Live Tracking Support</h3><p>Stay updated with real-time tracking visibility across every segment of your shipment journey.</p></div>
-<div class="feature-card"><h3>Insurance Coverage</h3><p>Comprehensive transit insurance options to provide total peace of mind for your valuable goods.</p></div>
+<div class="feature-card tilt-card"><h3>Safe & Monitored Delivery</h3><p>Utmost advanced layer telemetry loops ensuring perfect transit protection frameworks.</p></div>
+<div class="feature-card tilt-card"><h3>Multi-layer Packing</h3><p>High grade damageproof casing architectures deployed by industrial packing teams.</p></div>
+<div class="feature-card tilt-card"><h3>Pan India Transport</h3><p>Unified domestic fleet logistics linking major hubs to interior networks seamlessly.</p></div>
+<div class="feature-card tilt-card"><h3>Global Freight Array</h3><p>Strategic international trade corridors delivering parcels across 190+ countries.</p></div>
+<div class="feature-card tilt-card"><h3>Punctual Fleet Corridors</h3><p>Strict schedule schedule monitoring loops delivering corporate freight intact and within timeframe.</p></div>
+<div class="feature-card tilt-card"><h3>Transparent Transit Desk</h3><p>Real-time corporate desk handling communication parameters round-the-clock seamlessly.</p></div>
+<div class="feature-card tilt-card"><h3>Live Tracking Support</h3><p>Stay updated with real-time tracking visibility across every segment of your shipment journey.</p></div>
+<div class="feature-card tilt-card"><h3>Insurance Coverage</h3><p>Comprehensive transit insurance options to provide total peace of mind for your valuable goods.</p></div>
 </div>
 </section>
 
@@ -199,14 +385,14 @@ section{padding:120px 8%}
 </div>
 <div class="review-slider-wrap">
     <div class="review-track-auto">
-        <div class="luxury-review-box"><h4>Ramit Srivastava</h4><div class="stars">★★★★★</div><p>"Shipped 5 cartons from India to the USA through Akshita Ventures. Process was handled exceptionally from pickup to delivery. Reached perfectly."</p></div>
-        <div class="luxury-review-box"><h4>Deepankar Das</h4><div class="stars">★★★★★</div><p>"Outstanding household shifting experience. The team was punctual, highly professional and handled all fragile items with deep care."</p></div>
-        <div class="luxury-review-box"><h4>Trisha Hazra</h4><div class="stars">★★★★★</div><p>"One of the most trusted courier service providers in Jamshedpur. Transparent updates and supportive staff throughout the cycle."</p></div>
-        <div class="luxury-review-box"><h4>Diksha Kumari</h4><div class="stars">★★★★★</div><p>"My passport was delivered before the expected time and in perfect condition. Smooth and completely hassle-free logistics management."</p></div>
-        <div class="luxury-review-box"><h4>Deep Singh</h4><div class="stars">★★★★★</div><p>"Excellent service and customer support framework. The team guided me throughout the process and ensured perfectly timely cargo execution."</p></div>
-        <div class="luxury-review-box"><h4>Roshan Mahapatra</h4><div class="stars">★★★★★</div><p>"Outstanding reliability and communications metrics throughout the entire shipping journey. Highly responsive management."</p></div>
-        <div class="luxury-review-box"><h4>Jitendra Sharma</h4><div class="stars">★★★★★</div><p>"Fast, safe and secure service parameters. Pickup was completed right on schedule and delivery arrived completely damage-free."</p></div>
-        <div class="luxury-review-box"><h4>Abhishek Mishra</h4><div class="stars">★★★★★</div><p>"Very high standard international courier provider. Handled professionally and reached the destination within the expected timeframe."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Ramit Srivastava</h4><div class="stars">★★★★★</div><p>"Shipped 5 cartons from India to the USA through Akshita Ventures. Process was handled exceptionally from pickup to delivery. Reached perfectly."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Deepankar Das</h4><div class="stars">★★★★★</div><p>"Outstanding household shifting experience. The team was punctual, highly professional and handled all fragile items with deep care."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Trisha Hazra</h4><div class="stars">★★★★★</div><p>"One of the most trusted courier service providers in Jamshedpur. Transparent updates and supportive staff throughout the cycle."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Diksha Kumari</h4><div class="stars">★★★★★</div><p>"My passport was delivered before the expected time and in perfect condition. Smooth and completely hassle-free logistics management."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Deep Singh</h4><div class="stars">★★★★★</div><p>"Excellent service and customer support framework. The team guided me throughout the process and ensured perfectly timely cargo execution."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Roshan Mahapatra</h4><div class="stars">★★★★★</div><p>"Outstanding reliability and communications metrics throughout the entire shipping journey. Highly responsive management."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Jitendra Sharma</h4><div class="stars">★★★★★</div><p>"Fast, safe and secure service parameters. Pickup was completed right on schedule and delivery arrived completely damage-free."</p></div>
+        <div class="luxury-review-box tilt-card"><h4>Abhishek Mishra</h4><div class="stars">★★★★★</div><p>"Very high standard international courier provider. Handled professionally and reached the destination within the expected timeframe."</p></div>
     </div>
 </div>
 </section>
@@ -241,10 +427,25 @@ section{padding:120px 8%}
 </section>
 
 <div class="footer">
-    © 2026 Akshita Ventures Private Limited. All Rights Reserved.
+    <div class="footer-inner">
+        <div class="compliance-grid">
+            <div class="compliance-item"><strong>CIN:</strong> U82990JH2026PTC028246</div>
+            <div class="compliance-item"><strong>PAN:</strong> ABFCA9480P</div>
+            <div class="compliance-item"><strong>GSTIN:</strong> 20ABFCA9480P1Z8</div>
+            <div class="compliance-item"><strong>MSME:</strong> UDYAM-JH-06-0085629</div>
+            <div class="compliance-item"><strong>TAN:</strong> RCHA07389E</div>
+        </div>
+        <div>© <span id="currentYear"></span> Akshita Ventures Private Limited. All Rights Reserved.</div>
+    </div>
 </div>
 
-<a class="whatsapp" href="https://wa.me/918340681941?text=Hello%20Akshita%20Ventures,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20Courier,%20Cargo%20and%20Logistics%20Services.%0A%0APlease%20contact%20me." target="_blank">WhatsApp</a>
+<!-- WhatsApp Button -->
+<a class="whatsapp" href="https://wa.me/918340681941?text=Hello%20Akshita%20Ventures,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20Courier,%20Cargo%20and%20Logistics%20Services.%0A%0APlease%20contact%20me." target="_blank">
+    <span>💬</span> WhatsApp Us
+</a>
+
+<!-- Stylish Chat with Gatiman Tooltip Bubble next to Botpress widget -->
+<div class="gatiman-bubble-text">💬 Chat with Gatiman AI</div>
 
 <div id="quotePopup" class="quote-popup">
 <div class="quote-box">
@@ -272,8 +473,34 @@ section{padding:120px 8%}
 </div>
 
 <script>
+// 3D Card Tilt Effect Script
+const cards = document.querySelectorAll('.tilt-card');
+cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const xc = rect.width / 2;
+        const yc = rect.height / 2;
+        const dx = (x - xc) / xc;
+        const dy = (y - yc) / yc;
+        card.style.transform = `perspective(1000px) rotateY(${dx * 8}deg) rotateX(${-dy * 8}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+    });
+});
+
 function openQuoteForm(){ document.getElementById("quotePopup").style.display="flex"; }
 function closeQuoteForm(){ document.getElementById("quotePopup").style.display="none"; }
+
+// Automatically Update Current Year in Footer
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
+
+<!-- Gatiman AI Webchat Integration Scripts -->
+<script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/08/03/08/20260803084000-0163PS0D.js" defer></script>
+
 </body>
 </html>
