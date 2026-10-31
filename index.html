@@ -444,10 +444,10 @@ section{padding:100px 8%; position: relative; z-index: 2;}
 <input type="hidden" name="_captcha" value="false">
 <input type="text" name="Name" placeholder="Full Name" required>
 
-<!-- Country Code + Mobile Input -->
+<!-- Country Code + Mobile Input (Pattern removed so browser default error won't show) -->
 <div style="display: flex; gap: 8px;">
     <input type="text" value="+91" readonly style="width: 70px; text-align: center; background: rgba(255,255,255,0.08); cursor: not-allowed; color: #E2B744; font-weight: 600;">
-    <input type="tel" id="mobileNumber" name="Mobile" placeholder="Enter 10-digit valid number" maxlength="10" pattern="[6-9][0-9]{9}" required style="width: 100%;">
+    <input type="tel" id="mobileNumber" name="Mobile" placeholder="Enter 10-digit valid number" maxlength="10" required style="width: 100%;">
 </div>
 <small id="errorMsg" style="color: #ff4d4d; display: none; font-size: 12px; margin-top: 4px; font-weight: 600;"></small>
 
@@ -490,7 +490,7 @@ function closeQuoteForm(){ document.getElementById("quotePopup").style.display="
 
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// STRICT MOBILE NUMBER VALIDATION WITH ID BINDING
+// CUSTOM MOBILE NUMBER VALIDATION WITH "Please enter a valid number"
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
     const mobileInput = document.getElementById('mobileNumber').value.trim();
     const errorMsg = document.getElementById('errorMsg');
@@ -500,13 +500,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     if (!mobileRegex.test(mobileInput)) {
         e.preventDefault();
         errorMsg.style.display = 'block';
-        
-        if (mobileInput.length !== 10) {
-            errorMsg.innerText = "⚠️ Please enter a 10-digit valid number (entered " + mobileInput.length + " digits).";
-        } else {
-            errorMsg.innerText = "⚠️ Invalid number! Must start with 6, 7, 8, or 9.";
-        }
-        
+        errorMsg.innerText = "⚠️ Please enter a valid number";
         document.getElementById('mobileNumber').focus();
         return false;
     }
@@ -514,7 +508,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     if (/^(\d)\1{9}$/.test(mobileInput)) {
         e.preventDefault();
         errorMsg.style.display = 'block';
-        errorMsg.innerText = "⚠️ Fake number detected! Please enter a 10-digit valid number.";
+        errorMsg.innerText = "⚠️ Please enter a valid number";
         document.getElementById('mobileNumber').focus();
         return false;
     }
